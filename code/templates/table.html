@@ -1,0 +1,15 @@
+<!doctype html>
+   <table border = 1>
+      <tr>
+         {% for col_name in col_names %}
+            <th> {{ col_name }} </th>
+         {% endfor %}
+      </tr>
+      {% for row in data %}
+         <tr>
+            {% for single_data in row %}
+               <td> {{ single_data }} </td>
+            {% endfor %}
+         </tr>
+      {% endfor %}
+</table>

@@ -2,7 +2,7 @@ import mysql.connector
 from mysql.connector import errorcode
 from config_from_yaml import config_from_yaml_file
 
-def python_connect_mysql(config, state, table_name="contractpremium"):
+def python_connect_mysql(config, state="", table_name="contractpremium"):
     try:
         conn = mysql.connector.connect(**config)
         print("Connection established")
@@ -22,18 +22,30 @@ def python_connect_mysql(config, state, table_name="contractpremium"):
             table_names = []
             for i in cursor.fetchall():
                 table_names.append(i[0])
-            print(table_names)
-        else:
+            # print(table_names)
+            return table_names
+        elif state == 'show_col':
+            # Get all column names
+            query = "SELECT * FROM " + table_name + ";"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            col_names = []
+            for i in cursor.description:
+                col_names.append(i[0])
+            return col_names
+        else:            
             # Read data
             query = "SELECT * FROM " + table_name + ";"
             cursor.execute(query)
             rows = cursor.fetchall()
-            print("Read",cursor.rowcount,"row(s) of data.")
-            # print(cursor.description)
-
-            # Print all rows
+            data = []            
             for row in rows:
-                print("Data row = (%s, %s, %s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2]), str(row[3]), str(row[4])))
+                row_data = []
+                for i in range(len(row)):
+                    row_data.append(row[i])
+                data.append(row_data)
+            # print(data)
+            return data
 
         # Cleanup
         conn.commit()
@@ -42,4 +54,6 @@ def python_connect_mysql(config, state, table_name="contractpremium"):
 
 if __name__ == "__main__":
     config = config_from_yaml_file("config.yaml")
-    python_connect_mysql(config, state='show_tables')
+    # python_connect_mysql(config, state='show_tables')
+    # python_connect_mysql(config, state='show_col')
+    # python_connect_mysql(config)
