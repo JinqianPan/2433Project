@@ -1,0 +1,14 @@
+host:
+  proj2433.mysql.database.azure.com
+user:
+  proj2433
+password:
+  DMSFALL2022%-
+database:
+  2433proj
+client_flags: 
+  [2048]
+  # first go to python file type: print([mysql.connector.ClientFlag.SSL])
+  # swap [2048] to what you get
+ssl_ca: 
+  /Users/jinqianpan/Downloads/DigiCertGlobalRootG2.crt.pem
