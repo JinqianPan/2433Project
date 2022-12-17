@@ -19,3 +19,7 @@ We use python (in the jupyter notebook) to calculate the weight of the [Medical 
 - [ ] Delete data
 
 - [ ] Update data
+
+## Reference
+1. [Microsoft Azur, Python connect to MySQL](https://learn.microsoft.com/en-us/azure/mysql/single-server/connect-python)
+2. [Flask_templates](https://www.tutorialspoint.com/flask/flask_templates.htm)
