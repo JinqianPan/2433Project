@@ -10,12 +10,12 @@ We expect we could use the machine learning part to predict medical insurance pr
 We use python (in the jupyter notebook) to calculate the weight of the [Medical Insurance Premium Prediction](https://www.kaggle.com/datasets/tejashvi14/medical-insurance-premium-prediction) data, and export the weights into Python to predict the price.
 
 ## Progress
-[x] Show tables names, select table, and submit button
+- [x] Show tables names, select table, and submit button
 
-[x] Show table (table head, and data)
+- [x] Show table (table head, and data)
 
-[ ] Insert data (include doing machine learning part)
+- [ ] Insert data (include doing machine learning part)
 
-[ ] Delete data
+- [ ] Delete data
 
-[ ] Update data
+- [ ] Update data
