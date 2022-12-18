@@ -38,7 +38,7 @@ python get_client_flags.py
 
 - [x] Delete data
 
-- [ ] Update data
+- [x] Update data
 
 - [ ] Machine learning part insert
 

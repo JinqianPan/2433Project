@@ -53,6 +53,11 @@ def operation_toSQL():
          col_names = python_connect_mysql(config, state='show_col', table_name=table_name)
          data = python_connect_mysql(config, table_name=table_name)
          query = operation_to_sql(config, col_names=col_names, input_value=result, data=data, operation=result["operation_name"])
+      elif result["operation_name"] == "update":
+         table_name = result['table_name']
+         col_names = python_connect_mysql(config, state='show_col', table_name=table_name)
+         data = python_connect_mysql(config, table_name=table_name)
+         query = operation_to_sql(config, col_names=col_names, input_value=result, data=data, operation=result["operation_name"])
       return render_template("operat_info.html", result=result, query=query)
 
 @app.route('/success/1', methods=['POST', 'GET'])

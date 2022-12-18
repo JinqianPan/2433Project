@@ -108,7 +108,7 @@ def operation_to_sql(config, col_names=[], input_value={}, data=[], operation="i
                 delete_row = data[int(row_num)-1][1:]
                 query = "DELETE FROM " + table_name + " WHERE "
                 for i in range(len(col_names)):
-                    query = query + col_names[i] + " = \'" + delete_row[i] + "\'"
+                    query = query + col_names[i] + "=\'" + delete_row[i] + "\'"
                     if i != len(col_names)-1:
                         query = query + " AND "
                     else:
@@ -128,25 +128,31 @@ def operation_to_sql(config, col_names=[], input_value={}, data=[], operation="i
         elif operation == "update":
             try:
                 # query = "UPDATE inventory SET quantity = %s WHERE name = %s;", (300, "apple")
-                table_name, row_num, value_list = utili(operation, input_value)
+                table_name, row_num, value_list = utili(operation, input_value, col_names)
                 update_row = data[int(row_num)-1][1:]
                 query = "UPDATE " + table_name + " SET "
                 for i in range(len(col_names)):
-                    query = query + col_names[i] + " = " + value_list[i]
+                    query = query + col_names[i] + "=\'" + value_list[i] + "\'"
                     if i != len(col_names)-1:
-                        query = query + " AND "
+                        query = query + ", "
                 query = query + " WHERE "
                 for i in range(len(col_names)):
-                    query = query + col_names[i] + " = " + update_row[i]
+                    query = query + col_names[i] + "=\'" + update_row[i] + "\'"
                     if i != len(col_names)-1:
                         query = query + " AND "
                     else:
                         query = query + ";"
+                print(query)
                 cursor.execute(query)
-                print("Updated",cursor.rowcount,"row(s) of data.")
+                try:
+                    conn.commit()
+                    print("Updated",cursor.rowcount,"row of data.")
+                except:
+                    print("Fail to update.")
             except Exception as err:
                 print("Update failed: ", err) 
                 conn.rollback()
+            return query
 
         # Cleanup
         cursor.close()
@@ -171,15 +177,13 @@ def utili(operation, input_value, col_names=[]):
         return table_name, row_num
     elif operation == "update":
         value_list = []
-        for key, value in input_value:
-            if key == "table_name":
-                table_name = value
-            elif key == "operation_name":
-                pass
-            elif key == "row":
-                row_num = value
-            else:
-                value_list.append(value)
+        dict = {}
+        for key, value in input_value.items():
+            dict[key] = value
+        table_name = dict["table_name"]
+        row_num = dict["row"]
+        for i in range(len(col_names)):
+            value_list.append(dict[col_names[i]])
         return table_name, row_num, value_list
 
 
