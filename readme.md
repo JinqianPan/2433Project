@@ -36,11 +36,11 @@ python get_client_flags.py
 
 - [x] Insert data
 
-- [ ] Delete data
+- [x] Delete data
 
 - [ ] Update data
 
-- [ ] machine learning part insert
+- [ ] Machine learning part insert
 
 ## Reference
 1. [Microsoft Azur, Python connect to MySQL](https://learn.microsoft.com/en-us/azure/mysql/single-server/connect-python)

@@ -24,6 +24,7 @@ def python_connect_mysql(config, state="", table_name="contractpremium"):
                 table_names.append(i[0])
             # print(table_names)
             return table_names
+
         elif state == 'show_col':
             # Get all column names
             query = "SELECT * FROM " + table_name + ";"
@@ -33,6 +34,7 @@ def python_connect_mysql(config, state="", table_name="contractpremium"):
             for i in cursor.description:
                 col_names.append(i[0])
             return col_names
+
         else:            
             # Read data
             query = "SELECT * FROM " + table_name + ";"
@@ -98,6 +100,7 @@ def operation_to_sql(config, col_names=[], input_value={}, data=[], operation="i
                 print("Insert failed: ", err) 
                 conn.rollback()
             return query
+
         elif operation == "delete":
             try:
                 # query = "DELETE FROM inventory WHERE name=%(param1)s;", {'param1':"orange"}
@@ -105,16 +108,23 @@ def operation_to_sql(config, col_names=[], input_value={}, data=[], operation="i
                 delete_row = data[int(row_num)-1][1:]
                 query = "DELETE FROM " + table_name + " WHERE "
                 for i in range(len(col_names)):
-                    query = query + col_names[i] + " = " + delete_row[i]
+                    query = query + col_names[i] + " = \'" + delete_row[i] + "\'"
                     if i != len(col_names)-1:
                         query = query + " AND "
                     else:
                         query = query + ";"
+                # print(query)
                 cursor.execute(query)
-                print("Deleted",cursor.rowcount,"row(s) of data.")
+                try:
+                    conn.commit()
+                    print("Deleted",cursor.rowcount,"row of data.")
+                except:
+                    print("Fail to delete.")
             except Exception as err:
                 print("Delete failed: ", err) 
                 conn.rollback()
+            return query
+
         elif operation == "update":
             try:
                 # query = "UPDATE inventory SET quantity = %s WHERE name = %s;", (300, "apple")
@@ -142,7 +152,7 @@ def operation_to_sql(config, col_names=[], input_value={}, data=[], operation="i
         cursor.close()
         conn.close()
 
-def utili(operation, input_value, col_names):
+def utili(operation, input_value, col_names=[]):
     if operation == "insert":
         value_list = []
         dict = {}
@@ -153,8 +163,11 @@ def utili(operation, input_value, col_names):
             value_list.append(dict[col_names[i]])
         return table_name, value_list
     elif operation == "delete": 
-        table_name = input_value['table_name']
-        row_num = input_value["row"]
+        dict = {}
+        for key, value in input_value.items():
+            dict[key] = value
+        table_name = dict["table_name"]
+        row_num = dict["row"]
         return table_name, row_num
     elif operation == "update":
         value_list = []
