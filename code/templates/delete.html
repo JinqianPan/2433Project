@@ -18,6 +18,8 @@
 
 <h2>{{ operation_name }}</h2>
 <form action="http://127.0.0.1:5000/success" method="POST">
-   <p>Delete row number: <input type="text" name="row" /></p>
-   <p><input type="submit" value="Delete" /></p>
+    Table name: <input type="text" name="table_name" value={{ table_name }}> <br><br>
+    Operation name: <input type="text" name="operation_name" value=delete> <br><br>
+    <p>Delete row number: <input type="text" name="row" /></p>
+    <p><input type="submit" value="Delete" /></p>
 </form>

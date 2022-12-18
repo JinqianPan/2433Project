@@ -18,9 +18,12 @@
 
 <h2>{{ operation_name }}</h2>
 <form action="http://127.0.0.1:5000/success" method="POST">
-   <p>Update row number: <input type="text" name="row" /></p><br>
-   {% for col_name in col_names %}
-   <p>{{ col_name }}: <input type="text" name={{col_name}} /></p>
-   {% endfor %}
-   <p><input type="submit" value="Update" /></p>
+    Table name: <input type="text" name="table_name" value={{ table_name }}> <br><br>
+    Operation name: <input type="text" name="operation_name" value=update> <br><br>
+    <p>Update row number: <input type="text" name="row" /></p><br>
+    {% for col_name in col_names %}
+    <p>{{ col_name }}: <input type="text" name={{col_name}} /></p>
+    {% endfor %}
+    <br><br>
+    <p><input type="submit" value="Update" /></p>
 </form>
