@@ -9,6 +9,24 @@ In addiction, this interactive system also include the code from project3(Machin
 We expect we could use the machine learning part to predict medical insurance price, and insert the price into the table.
 We use python (in the jupyter notebook) to calculate the weight of the [Medical Insurance Premium Prediction](https://www.kaggle.com/datasets/tejashvi14/medical-insurance-premium-prediction) data, and export the weights into Python to predict the price.
 
+## Packages
+In this project, we use packages below.
+```
+pip install PyYAML
+pip install easydict
+pip install Flask
+pip install mysql-connector-python
+```
+
+## Preparing
+1. Please go to setup.md to connect the MySQL Server
+2. Run the code to get the client flag for configs
+```
+cd code
+python get_client_flags.py
+```
+3. Copy the result to /code/config.yaml; also motify the config to connect the database server.
+
 ## Progress
 - [x] Show tables names, select table, and submit button
 

@@ -1,0 +1,25 @@
+<!doctype html>
+<h1>{{ table_name }} Table</h1>
+<table border = 1>
+   <tr>
+      <th>  </th>
+      {% for col_name in col_names %}
+         <th> {{ col_name }} </th>
+      {% endfor %}
+   </tr>
+   {% for row in data %}
+      <tr>
+         {% for single_data in row %}
+            <td> {{ single_data }} </td>
+         {% endfor %}
+      </tr>
+   {% endfor %}
+</table>
+
+<h2>{{ operation_name }}</h2>
+<form action="http://127.0.0.1:5000/success" method="POST">
+   {% for col_name in col_names %}
+   <p>{{ col_name }}: <input type="text" name={{col_name}} /></p>
+   {% endfor %}
+   <p><input type="submit" value="Insert" /></p>
+</form>

@@ -38,9 +38,12 @@ def python_connect_mysql(config, state="", table_name="contractpremium"):
             query = "SELECT * FROM " + table_name + ";"
             cursor.execute(query)
             rows = cursor.fetchall()
-            data = []            
+            data = []
+            index_num = 1    
             for row in rows:
                 row_data = []
+                row_data.append(index_num)
+                index_num += 1
                 for i in range(len(row)):
                     row_data.append(row[i])
                 data.append(row_data)

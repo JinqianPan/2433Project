@@ -1,15 +1,33 @@
 <!doctype html>
-   <table border = 1>
+<h1>{{ table_name }} Table</h1>
+<table border = 1>
+   <tr>
+      <th>  </th>
+      {% for col_name in col_names %}
+         <th> {{ col_name }} </th>
+      {% endfor %}
+   </tr>
+   {% for row in data %}
       <tr>
-         {% for col_name in col_names %}
-            <th> {{ col_name }} </th>
+         {% for single_data in row %}
+            <td> {{ single_data }} </td>
          {% endfor %}
       </tr>
-      {% for row in data %}
-         <tr>
-            {% for single_data in row %}
-               <td> {{ single_data }} </td>
-            {% endfor %}
-         </tr>
-      {% endfor %}
+   {% endfor %}
 </table>
+
+<br><br><br><br><br>
+
+<h2>Operations</h2>
+<form action="http://127.0.0.1:5000/operation" method="POST">
+   Table: <input type="text" name="table_name" value={{ table_name }}> <br><br>
+   <input type="radio" name="operation" value='insert'>Insert Data &nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="radio" name="operation" value="delete">Delete Data &nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="radio" name="operation" value="update">Update Data<br>
+   <p><input type = "submit" value = "submit" /></p>
+</form>
+
+<h2>Back to tables</h2>
+<form action="http://127.0.0.1:5000/operation" method="GET">
+   <p><input type="submit" value="Back" /></p>
+</form>
