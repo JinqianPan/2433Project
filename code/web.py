@@ -71,5 +71,13 @@ def survey():
    if request.method == 'GET':
       return render_template("survey.html")
 
+@app.route('/survey/1', methods=['POST', 'GET'])
+def survey_price():
+   # Calculate price
+   if request.method == 'POST':
+      result = request.form
+      # Here add python function to calculate the price.
+      return render_template("price.html", result=result)
+
 if __name__ == '__main__':
    app.run(debug = True)

@@ -1,0 +1,18 @@
+<!doctype html>
+<h1>Survey Result</h1>
+<table border = 1>
+    {% for key, value in result.items() %}
+        <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+<h4>Your insurance price is: <font style="color:#FF0000";>contract</font></h4>
+
+<br>
+<h2>Back to tables</h2>
+<form action="http://127.0.0.1:5000/operation" method="GET">
+   <p><input type="submit" value="Back" /></p>
+</form>
