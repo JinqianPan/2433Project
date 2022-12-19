@@ -17,13 +17,13 @@ pip install mysql-connector-python
 ```
 
 ## Preparing
-1. Please go to setup.md to connect the MySQL Server
+1. Please go to **setup.md** to connect the MySQL Server
 2. Run the code to get the client flag for configs
 ```
 cd code
 python get_client_flags.py
 ```
-3. Copy the result to /code/config.yaml; also motify the config to connect the database server.
+3. Copy the result to **/code/config.yaml**; also motify the config to connect the database server.
 
 ## Progress
 - [x] Show tables names, select table, and submit button
