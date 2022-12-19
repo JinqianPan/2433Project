@@ -25,6 +25,24 @@ python get_client_flags.py
 ```
 3. Copy the result to **/code/config.yaml**; also motify the config to connect the database server.
 
+## Launch
+```
+cd code
+python web.py
+```
+
+## Files
+1. **setup.md**: The tutorial on connecting to the Microsoft Azure server
+2. **code**: Contains all the code of this project.
+    
+    1) **config.yaml**: Contains the config connected to the server.
+    2) **get_client_flags.py**: Get the client flag, which is needed when modifying the yaml file.
+    3) **config_from_yaml.py**: Convert the yaml file into a dictionary.
+    4) **mysql2python.py**: Contains all the code connecting Python and MySQL (show tables, get columns, get data, insert, delete and update)
+    5) **web.py**: The main file of this project contains Python flask code.
+    6) **templates**: Contains all html files.
+
+
 ## Progress
 - [x] Show tables names, select table, and submit button
 
