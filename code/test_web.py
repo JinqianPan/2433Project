@@ -65,5 +65,11 @@ def succ():
       # Go back to initial_page
       return redirect(url_for('initial_page'))
 
+@app.route('/survey', methods=['POST', 'GET'])
+def survey():
+   # Go to the survey
+   if request.method == 'GET':
+      return render_template("survey.html")
+
 if __name__ == '__main__':
    app.run(debug = True)
