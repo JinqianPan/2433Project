@@ -15,7 +15,17 @@ This GitHub includes the software portion of part 3 and the final part.
 ![Image text](images/model_xgboost.png)
 
 ### For Interactive System：
+**Survey part for calculating insurance price**:
 ![image](https://github.com/JinqianPan/2433Project/blob/main/GIF/Survey.gif)
+
+**Insert**:
+![image](https://github.com/JinqianPan/2433Project/blob/main/GIF/Insert.gif)
+
+**Delete**:
+![image](https://github.com/JinqianPan/2433Project/blob/main/GIF/Delete.gif)
+
+**Update**:
+![image](https://github.com/JinqianPan/2433Project/blob/main/GIF/Update.gif)
 
 ## Files
 1. **setup.md**: The tutorial on connecting to the Microsoft Azure server
