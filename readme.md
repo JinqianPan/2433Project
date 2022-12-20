@@ -15,7 +15,7 @@ This GitHub includes the software portion of part 3 and the final part.
 ![Image text](images/model_xgboost.png)
 
 ### For Interactive System：
-GIFGIF
+![image](https://github.com/JinqianPan/2433Project/blob/main/GIF/Survey.gif)
 
 ## Files
 1. **setup.md**: The tutorial on connecting to the Microsoft Azure server
