@@ -14,7 +14,7 @@ This GitHub includes the software portion of part 3 and the final part.
 **Visulizing Important Features from XGboost**:
 ![Image text](images/model_xgboost.png)
 
-### For Interactive System: (Here is the GIF demo. If you don't move, please refresh the page.)
+### For Interactive System: (Here is the GIF demos. If they stop, please refresh the page.)
 
 **Survey part for calculating insurance price**:
 
