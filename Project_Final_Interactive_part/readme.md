@@ -8,7 +8,7 @@ The interactive system includes showing tables, selecting tables, and updating (
 We can use the machine learning part to predict medical insurance prices and insert the price into the table. We use Python (in the Project3's Jupyter notebook) to calculate the weight of the [Medical Insurance Premium Prediction](https://www.kaggle.com/datasets/tejashvi14/medical-insurance-premium-prediction) data and export the weights into Python to predict the price.
 
 ## Packages
-In this project, we use packages below.
+In this part, we use packages below.
 ```
 pip install PyYAML
 pip install easydict
