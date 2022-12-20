@@ -32,8 +32,7 @@ python web.py
 ```
 
 ## Files
-1. **setup.md**: The tutorial on connecting to the Microsoft Azure server
-2. **code**: Contains all the code of this project.
+1. **code**: Contains all the code of this project.
     
     1) **config.yaml**: Contains the config connected to the server.
     2) **get_client_flags.py**: Get the client flag, which is needed when modifying the yaml file.
