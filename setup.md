@@ -10,7 +10,7 @@ Here we get 8.0 version.
 4) We are using [Microsoft Azure](https://azure.microsoft.com/en-us/) as our big cloud's server. Sign in and log in.
 ![Image text](images/ms_azure.png)
 
-5) Click the "Create a resource", and choose "SQL Database". Please make sure the MySQL version is same as step2. (My version is 8.0)
+5) Click the "Create a resource", and choose "Azure Database for MySQL servers". Here is [guide](https://learn.microsoft.com/en-us/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal). Please make sure the MySQL version is same as step2. (My version is 8.0)
 ![Image text](images/ms_azure_overview.png)
 
 6) Click the "Connect", and do the MySQL Workbench guide step by step.
