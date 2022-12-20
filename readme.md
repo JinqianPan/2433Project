@@ -1,5 +1,22 @@
 # CSCI-GA 2433 Project (Software Portion)
 
+## Description:
+The project is about creating a database and interactive system for an insurance company. 
+
+The project's first two parts are creating ER diagram and schema for the database. The third part of the project is finding a dataset that could help the insurance company and do the machine learning for this dataset. Finally, we need to finish the interactive system for the database.
+
+This GitHub includes the software portion of part 3 and the final part.
+
+### For ML part:
+**Data hot map**:
+![Image text](images/data_hotmap.png)
+
+**Visulizing Important Features from XGboost**:
+![Image text](images/model_xgboost.png)
+
+### For Interactive System：
+GIFGIF
+
 ## Files
 1. **setup.md**: The tutorial on connecting to the Microsoft Azure server
 2. **Project_3_ML_part**: Including the Software Portion of project 3
