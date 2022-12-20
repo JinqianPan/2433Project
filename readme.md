@@ -56,7 +56,7 @@ python web.py
 
 - [x] Update data
 
-- [ ] Machine learning part insert
+- [x] Machine learning part insert
 
 ## Reference
 1. [Microsoft Azur, Python connect to MySQL](https://learn.microsoft.com/en-us/azure/mysql/single-server/connect-python)
