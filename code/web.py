@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from mysql2python import python_connect_mysql, operation_to_sql
 from config_from_yaml import config_from_yaml_file
+from ml_cal_price import survey_input, xgb_predict
 
 config = config_from_yaml_file("config.yaml")
 table_names = python_connect_mysql(config, state='show_tables')
@@ -76,8 +77,8 @@ def survey_price():
    # Calculate price
    if request.method == 'POST':
       result = request.form
-      # Here add python function to calculate the price.
-      return render_template("price.html", result=result)
+      price = xgb_predict(survey_input(result))[0]
+      return render_template("price.html", result=result, price=price)
 
 if __name__ == '__main__':
    app.run(debug = True)
